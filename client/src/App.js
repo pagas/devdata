@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {API_ROOT} from './api-config'
 
 function App() {
     const [apiResponse, setApiResponse] = useState(0);
@@ -13,7 +14,7 @@ function App() {
     }, [])
 
     function callAPI() {
-        fetch("http://localhost:9000/testAPI")
+        fetch(`${API_ROOT}/testAPI`)
             .then(res => res.text())
             .then(res => setApiResponse(res));
     }
