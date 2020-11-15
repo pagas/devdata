@@ -5,10 +5,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var usersRouter = require('./routes/users');
+var userRouter = require('./routes/user');
 var testAPIRouter = require('./routes/testAPI');
 var pathToBuild = '../client/build';
 
 var app = express();
+
+const InitiateMongoServer = require("./config/db");
+// Initiate Mongo Server
+InitiateMongoServer();
 
 var cors = require("cors");
 app.use(cors());
@@ -23,6 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, pathToBuild)));
 
+app.use('/user', userRouter);
 app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
 
