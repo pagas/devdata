@@ -46,10 +46,12 @@ router.post("/signup",
                 });
             }
 
+            const roles = ['ROLE_USER']
             user = new User({
                 username,
                 email,
-                password
+                password,
+                roles
             });
 
             const salt = await bcrypt.genSalt(10);
@@ -68,7 +70,7 @@ router.post("/signup",
                 }, (err, token) => {
                     if (err) throw err;
                     res.status(200).json({
-                        token
+                        accessToken: token
                     });
                 }
             );
@@ -122,7 +124,10 @@ router.post("/login",
                 },(err, token) => {
                     if (err) throw err;
                     res.status(200).json({
-                        token
+                        email,
+                        roles: user.roles,
+                        username: user.username,
+                        accessToken: token
                     });
                 }
             );
