@@ -4,16 +4,16 @@ import {API_ROOT} from '../api-config';
 const API_URL = `${API_ROOT}/user/`;
 
 const register = (username, email, password) => {
-    return axios.post(`${API_URL}/signup`, {
+    return axios.post(`${API_URL}signup`, {
         username,
         email,
         password
     })
 }
 
-const login = (username, password) => {
-    return axios.post(`${API_URL}/login`, {
-        username,
+const login = (email, password) => {
+    return axios.post(`${API_URL}login`, {
+        email,
         password
     }).then((response) => {
         if (response.data.accessToken) {
