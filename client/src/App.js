@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import {API_ROOT} from './api-config'
 
@@ -22,7 +22,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
+                <h1 class="m-5">test</h1>
                 <p>
                     Edit <code>src/App.js</code> and save to reload.
                 </p>
