@@ -7,12 +7,23 @@ import Input from "react-validation/build/input";
 import CheckButton from 'react-validation/build/button';
 
 import {login} from "../actions/auth";
+import {isEmail} from "validator";
 
 const required = (value) => {
     if (!value) {
         return (
             <div className="alert alert-danger" role="alert">
                 This field is required!
+            </div>
+        );
+    }
+}
+
+const validEmail = (value) => {
+    if (!isEmail(value)) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                This is not valid email.
             </div>
         );
     }
@@ -81,7 +92,7 @@ const Login = (props) => {
                                name="email"
                                value={email}
                                onChange={onChangeEmail}
-                               validations={[required]}
+                               validations={[required, validEmail]}
                         />
                     </div>
                     <div className="form-group">
