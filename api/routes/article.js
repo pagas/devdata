@@ -12,10 +12,21 @@ const Article = require("../models/Article");
  * Show all articles
  */
 
-router.get("/", auth,  async function (req, res, next) {
+router.get("/all", auth,  async function (req, res, next) {
     const articles = await Article.find();
     res.status(200).json({
         articles: articles
+    });
+});
+
+/**
+ * Show all articles
+ */
+
+router.get("/view/:id", auth,  async function (req, res, next) {
+    const article = await Article.find({id: req.params.id});
+    res.status(200).json({
+        article: article
     });
 });
 
