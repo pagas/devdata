@@ -6,9 +6,9 @@ import {
     SET_MESSAGE
 } from "./types";
 
-import ArticleService from "../services/article.service";
+import ArticleService from "../../services/article.service";
 
-export const creteArticle = (title, body) => {
+export const creteArticle = (title, body) => (dispatch) => {
     return ArticleService.createArticle(title, body).then(
         (response) => {
             dispatch({type: ARTICLE_CREATE_SUCCESS});
@@ -29,7 +29,7 @@ export const creteArticle = (title, body) => {
     )
 }
 
-export const getArticle = (id) => {
+export const getArticle = (id) => (dispatch) => {
     return ArticleService.getArticleById(id).then(
         (response) => {
             dispatch({type: ARTICLE_FETCH, payload: response.data});
@@ -48,7 +48,7 @@ export const getArticle = (id) => {
     )
 }
 
-export const getArticles = () => {
+export const getArticles = () => (dispatch) => {
     return ArticleService.getAllArticles().then(
         (response) => {
             dispatch({type: ARTICLES_FETCH, payload: response.data});

@@ -15,8 +15,10 @@ import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 
-import {logout} from "./actions/auth";
-import {clearMessage} from "./actions/message";
+import AddArticle from "./components/article/AddArticle";
+
+import {logout} from "./redux/actions/auth";
+import {clearMessage} from "./redux/actions/message";
 
 import {history} from "./helpers/history";
 
@@ -75,11 +77,19 @@ const App = () => {
                         )}
 
                         {currentUser && (
-                            <li className="nav-item">
-                                <Link to={"/user"} className="nav-link">
-                                    User
-                                </Link>
-                            </li>
+                            <React.Fragment>
+                                <li className="nav-item">
+                                    <Link to={"/user"} className="nav-link">
+                                        User
+                                    </Link>
+                                </li>
+
+                                <li className="nav-item">
+                                    <Link to={"/articles"} className="nav-link">
+                                    Articles
+                                    </Link>
+                                </li>
+                            </React.Fragment>
                         )}
                     </div>
 
@@ -119,6 +129,10 @@ const App = () => {
                         <Route exact path="/login" component={Login}/>
                         <Route exact path="/register" component={Register}/>
                         <Route exact path="/profile" component={Profile}/>
+
+                        <Route path="/articles" component={AddArticle}/>
+                        <Route path="/articles/create" component={AddArticle}/>
+
                         <Route path="/user" component={BoardUser}/>
                         <Route path="/mod" component={BoardModerator}/>
                         <Route path="/admin" component={BoardAdmin}/>

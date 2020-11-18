@@ -2,7 +2,7 @@ import {
     REGISTER_FAIL, REGISTER_SUCCESS,
     LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, SET_MESSAGE} from "./types";
 
-import AuthService from '../services/auth.service';
+import AuthService from '../../services/auth.service';
 
 export const register = (username, email, password) => (dispatch) => {
     return AuthService.register(username, email, password).then(
