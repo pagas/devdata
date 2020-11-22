@@ -51,7 +51,7 @@ export const getArticle = (id) => (dispatch) => {
 export const getArticles = () => (dispatch) => {
     return ArticleService.getAllArticles().then(
         (response) => {
-            dispatch({type: ARTICLES_FETCH, payload: response.data});
+            dispatch({type: ARTICLES_FETCH, payload: response.data.articles});
             dispatch({type: SET_MESSAGE, payload: response.data.message})
             return Promise.resolve();
         },

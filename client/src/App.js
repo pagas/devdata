@@ -16,6 +16,7 @@ import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 
 import AddArticle from "./components/article/AddArticle";
+import AllArticles from "./components/article/AllArticles";
 
 import {logout} from "./redux/actions/auth";
 import {clearMessage} from "./redux/actions/message";
@@ -130,8 +131,8 @@ const App = () => {
                         <Route exact path="/register" component={Register}/>
                         <Route exact path="/profile" component={Profile}/>
 
-                        <Route path="/articles" component={AddArticle}/>
-                        <Route path="/articles/create" component={AddArticle}/>
+                        <Route exact path="/articles" component={AllArticles}/>
+                        <Route exact path="/articles/create" component={AddArticle}/>
 
                         <Route path="/user" component={BoardUser}/>
                         <Route path="/mod" component={BoardModerator}/>
