@@ -6,6 +6,7 @@ import {Router, Switch, Route, Link} from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import "./styles/clean-blog.css"
 
 import Login from "./components/Login";
 import Register from "./components/Register";

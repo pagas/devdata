@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getArticles} from '../../redux/actions/article';
+import Moment from 'react-moment';
 
 const AllArticles = () => {
     const dispatch = useDispatch();
@@ -32,9 +33,12 @@ const AllArticles = () => {
                                         Problems look mighty small from 150 miles up
                                     </h3>
                                 </Link>
-                                <p className="post-meta">Posted by
+                                <p className="post-meta">
+                                    <span>Posted by </span>
                                     <a href="#">Author</a>
-                                    on September 24, 2019</p>
+                                    <span> on </span>
+                                    <Moment format="D MMM YYYY" fromNow >{article.publishedAt}</Moment>
+                                </p>
                             </div>
                             <hr/>
                         </React.Fragment>
