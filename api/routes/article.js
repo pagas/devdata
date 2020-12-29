@@ -24,7 +24,7 @@ router.get("/all", auth,  async function (req, res, next) {
  */
 
 router.get("/view/:id", auth,  async function (req, res, next) {
-    const article = await Article.find({id: req.params.id});
+    const article = await Article.findById(req.params.id);
     res.status(200).json({
         article: article
     });
