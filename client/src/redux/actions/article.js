@@ -32,7 +32,7 @@ export const creteArticle = (title, body) => (dispatch) => {
 export const getArticle = (id) => (dispatch) => {
     return ArticleService.getArticleById(id).then(
         (response) => {
-            dispatch({type: ARTICLE_FETCH, payload: response.data});
+            dispatch({type: ARTICLE_FETCH, payload: response.data.article});
             return Promise.resolve();
         },
         (error) => {

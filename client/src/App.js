@@ -18,6 +18,7 @@ import BoardAdmin from "./components/BoardAdmin";
 
 import AddArticle from "./components/article/AddArticle";
 import AllArticles from "./components/article/AllArticles";
+import ViewArticle from "./components/article/ViewArticle";
 
 import {logout} from "./redux/actions/auth";
 import {clearMessage} from "./redux/actions/message";
@@ -134,6 +135,7 @@ const App = () => {
 
                         <Route exact path="/articles" component={AllArticles}/>
                         <Route exact path="/articles/create" component={AddArticle}/>
+                        <Route exact path="/articles/view/:articleId" component={ViewArticle}/>
 
                         <Route path="/user" component={BoardUser}/>
                         <Route path="/mod" component={BoardModerator}/>
